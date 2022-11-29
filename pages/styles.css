@@ -10,7 +10,7 @@ body {
     display: flex;
     place-content: center flex-start;
     align-items: center;
-    background-image: url(../assets/background.png);
+    background-image: url(https://imagesflores.s3.us-east-2.amazonaws.com/2146731.jpeg);
     flex-flow: column nowrap;
     gap: 10px;
     height: 100vh;
