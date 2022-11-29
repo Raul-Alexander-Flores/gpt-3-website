@@ -6,9 +6,10 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
+
 const basePromptPrefix =
 `
-Write me a story about dragons and elves including these two characters.
+Write me a story about dragons and elves including these two characters and how they won the war.
 
 Characters:
 `
@@ -17,7 +18,7 @@ const generateAction = async (req, res) => {
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`)
 
   const baseCompletion = await openai.createCompletion({
-    model: 'text-davinci-002',
+    model: 'text-davinci-003',
     prompt: `${basePromptPrefix}${req.body.userInput}`,
     temperature: 0.8,
     max_tokens: 250,
@@ -27,22 +28,22 @@ const generateAction = async (req, res) => {
 
   // I build Prompt #2.
   const secondPrompt = 
+  //${req.body.userInput}
   `
-  Take the Story from below and add a plot twist ending. 
+  Take the Story from below and add a plot twist where one of the characters becomes ruler of all the lands. 
 
-  Title: Story about and ${req.body.userInput}
 
   Story: ${basePromptOutput.text}
 
- 
+  New Story:
   `
   
   // I call the OpenAI API a second time with Prompt #2
   const secondPromptCompletion = await openai.createCompletion({
-    model: 'text-davinci-002',
+    model: 'text-davinci-003',
     prompt: `${secondPrompt}`,
     // I set a higher temperature for this one. Up to you!
-    temperature: 0.90,
+    temperature: 0.85,
 		// I also increase max_tokens.
     max_tokens: 1250,
   });
@@ -55,5 +56,3 @@ const generateAction = async (req, res) => {
 };
 
 export default generateAction;
-
-
