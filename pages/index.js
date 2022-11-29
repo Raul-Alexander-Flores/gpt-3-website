@@ -47,7 +47,7 @@ const Home = () => {
             <h1>Write your own fantasy novel here!</h1>
           </div>
           <div className="header-subtitle">
-            <h2>Create some crazy ass shit you would have never imagined!</h2>
+            <h2>Create some crazy ass shit based of elves and dragons. Type in two names</h2>
           </div>
         </div>
         {/* Add this code here*/}
@@ -59,6 +59,16 @@ const Home = () => {
             onChange={onUserChangedText}
           />
           {/* New code I added here */}
+          <div className="prompt-buttons">
+            <a
+              className={isGenerating ? 'generate-button loading' : 'generate-button'}
+              onClick={callGenerateEndpoint}
+            >
+              <div className="generate">
+              {isGenerating ? <span class="loader"></span> : <p>Generate</p>}
+              </div>
+            </a>
+          </div>
           {apiOutput && (
           <div className="output">
             <div className="output-header-container">
