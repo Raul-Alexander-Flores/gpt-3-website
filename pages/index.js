@@ -47,7 +47,7 @@ const Home = () => {
             <h1>Write your own fantasy novel here!</h1>
           </div>
           <div className="header-subtitle">
-            <h2>Create some crazy ass shit based of elves and dragons. Type in two names</h2>
+            <h2>Create some crazy ass shit based of elves and dragons. Type in two names!</h2>
           </div>
         </div>
         {/* Add this code here*/}
